@@ -5,7 +5,6 @@ import bannerImg from "./assets/banneerrr.jpg";
 import businessImg from "./assets/business cards template examples.png";
 import stickerpartyImg from "./assets/stickerparty.png";
 import templateericImg from "./assets/template ericcc a5.jpg";
-import laptopFrameImg from "./assets/Laptop Frame.png";
 import blogImg1 from "./assets/Van Design.jpg";
 const text = "Hello, I'm Shay-Lynn...";
 
@@ -99,10 +98,8 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [showContent, setShowContent] = useState(false);
-  const [showProjects, setShowProjects] = useState(false); // controls project grid slide-up
+  const [, setShowProjects] = useState(false); // controls project grid slide-up
   const [columns, setColumns] = useState(4);
-
-  
 
   // Animate loading progress 0 to 100 in ~2.5s
   useEffect(() => {
