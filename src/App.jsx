@@ -6,6 +6,7 @@ import businessImg from "./assets/business cards template examples.png";
 import stickerpartyImg from "./assets/stickerparty.png";
 import templateericImg from "./assets/template ericcc a5.jpg";
 import blogImg1 from "./assets/Van Design.jpg";
+
 const text = "Hello, I'm Shay-Lynn...";
 
 const projects = [
@@ -41,42 +42,6 @@ const projects = [
     stack: ["Photoshop", "Layout"],
     liveLink: "#",
   },
-
-  {
-    id: "template-eric",
-    title: "Template Eric A5",
-    imgSrc: templateericImg,
-    description: "A5 layout template for editorial or print",
-    stack: ["Photoshop", "Layout"],
-    liveLink: "#",
-  },
-
-  {
-    id: "template-eric",
-    title: "Template Eric A5",
-    imgSrc: templateericImg,
-    description: "A5 layout template for editorial or print",
-    stack: ["Photoshop", "Layout"],
-    liveLink: "#",
-  },
-
-  {
-    id: "template-eric",
-    title: "Template Eric A5",
-    imgSrc: templateericImg,
-    description: "A5 layout template for editorial or print",
-    stack: ["Photoshop", "Layout"],
-    liveLink: "#",
-  },
-
-  {
-    id: "template-eric",
-    title: "Template Eric A5",
-    imgSrc: templateericImg,
-    description: "A5 layout template for editorial or print",
-    stack: ["Photoshop", "Layout"],
-    liveLink: "#",
-  },
 ];
 
 const blogPosts = [
@@ -86,7 +51,7 @@ const blogPosts = [
       "Turning Heads on the Move: The Critical Role of Vehicle Wraps in Business Growth",
     excerpt:
       "Exploring why vehicle wrap artwork is an essential investment for modern businesses",
-    link: "#",
+    link: "https://medium.com/@shaylynndudhia.official/turning-heads-on-the-move-the-critical-role-of-vehicle-wraps-in-business-growth-811bd378664b",
     imgSrc: blogImg1,
   },
 ];
@@ -282,7 +247,7 @@ export default function App() {
 
         <div className="social-icons">
           <a
-            href="https://linkedin.com/in/your-linkedin"
+            href="http://www.linkedin.com/in/shay-lynn-dudhia"
             target="_blank"
             rel="noopener noreferrer"
             className="icon linkedin"
@@ -290,25 +255,116 @@ export default function App() {
             <FaLinkedin />
           </a>
           <a
-            href="https://github.com/your-github"
+            href="https://github.com/ShayLynnjpg"
             target="_blank"
             rel="noopener noreferrer"
             className="icon github"
           >
             <FaGithub />
           </a>
-          <a
-            href="https://behance.net/your-behance"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon behance"
-          >
-            <FaBehance />
-          </a>
         </div>
-
-        
       </div>
+ 
+<section className="skills-section">
+  <style>{`
+    .skills-section {
+      padding: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(128, 128, 128, 0.15); /* grey with opacity */
+      border-radius: 12px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .skill-bar-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skill-name {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+
+    .bar-container {
+      background: rgba(255, 255, 255, 0.1);
+      height: 25px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      border-radius: 20px;
+      transition: width 0.6s ease;
+    }
+
+    .percentage-label {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 0 2px rgba(0,0,0,0.7);
+    }
+
+    @media (max-width: 500px) {
+      .skills-section {
+        padding: 1.5rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .skill-name {
+        font-size: 0.85rem;
+      }
+    }
+  `}</style>
+
+  <h2 className="section-title">💡 My Skillset</h2>
+
+  <div className="skill-bar-wrapper">
+    {[
+      { name: "UI Design", value: 70, color: "#9b59b6" },
+      { name: "Prototyping", value: 75, color: "#2ecc71" },
+      { name: "Graphic Design", value: 80, color: "#f39c12" },
+      { name: "UX Design", value: 85, color: "#3498db" },
+      { name: "Wireframing", value: 65, color: "#e74c3c" },
+      { name: "Adobe Creative Suite", value: 90, color: "#1abc9c" },
+      { name: "HTML & CSS", value: 60, color: "#e91e63" },
+    ].map(({ name, value, color }) => (
+      <div key={name} className="skill">
+        <div className="skill-name">{name}</div>
+        <div className="bar-container">
+          <div
+            className="bar"
+            style={{ width: `${value}%`, backgroundColor: color }}
+          ></div>
+          <span className="percentage-label">{value}%</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       <div className="about-section">
         <h2 className="section-title">👋 About Me</h2>
@@ -325,7 +381,11 @@ export default function App() {
           <em>Fun fact:</em> I design best when I’ve got House Music playing and
           coffee in hand. ☕
         </p>
-        <a href="/cv.pdf" download className="download-cv-btn">
+        <a
+          href="/Shay-Lynn Dudhia - UX_UI (1).pdf"
+          download
+          className="download-cv-btn"
+        >
           📄 Download My CV
         </a>
       </div>
@@ -371,8 +431,8 @@ export default function App() {
           tips—all designed to support development and enhance communication in
           one user-friendly place.
         </p>
-        <a href="/cv.pdf" download className="download-cv-btn">
-          View More
+        <a href="https://medium.com/@shaylynndudhia.official/case-study-write-up-595c6a480cea" download className="download-cv-btn">
+          Case study & Prototype
         </a>
         <div className="prototype-embed">
           <iframe
@@ -404,7 +464,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Read More &rarr;
+                  Read More on Medium &rarr;
                 </a>
               </div>
             ))}
@@ -416,10 +476,15 @@ export default function App() {
           <h2 className="section-title">💬 Testimonials</h2>
           <div className="testimonial-card">
             <p className="testimonial-text">
-              "Shay-Lynn brought such creativity to our project! Professional,
-              quick, and so easy to work with."
+              "The design (A5 Flyer - The Scan Doctor) was as professional as it
+              gets, everyone who saw the work put in had only positive things to
+              say, and found it hard to believe I could get such value for
+              money, in the long run and in my opinion if you invest in quality
+              and professional style business documents potential clients will
+              look at you in a much more serious way. Use finchiesignes they are
+              second to none for great customer service!"
             </p>
-            <p className="testimonial-author">— Alex M., Creative Director</p>
+            <p className="testimonial-author">— Eric, The Scan Doctor</p>
           </div>
         </section>
 
@@ -428,7 +493,7 @@ export default function App() {
           <h2 className="section-title">📫 Contact Me</h2>
           <form
             className="contact-form"
-            action="https://formspree.io/f/your-form-id"
+            action="https://formspree.io/f/mrbqneza" // ✅ Make sure this is your actual Form ID
             method="POST"
           >
             <input type="text" name="name" placeholder="Your Name" required />

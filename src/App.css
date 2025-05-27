@@ -202,23 +202,34 @@ body {
   visibility: hidden;
 }
 
+
 .blob {
   width: 220px;
   height: 220px;
-  background: linear-gradient(135deg, #a855f7);
+  background: linear-gradient(135deg, #cb4ed6, #b320c6);
+  background-size: 200% 200%;
   border-radius: 45% 55% 60% 40% / 60% 40% 60% 40%;
-  animation: blobMove 4s infinite ease-in-out;
-  filter: drop-shadow(0 0 25px #000000);
+  animation: 
+    blobMove 4s ease-in-out infinite,
+    gradientShift 10s ease infinite;
+  filter: 
+    drop-shadow(0 0 10px #cb4ed6)
+    drop-shadow(0 0 25px #b320c6);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.blob:hover {
+  transform: scale(1.08);
 }
 
 .progress-text {
   color: rgb(255, 255, 255);
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
   user-select: none;
   position: absolute;
@@ -230,18 +241,31 @@ body {
     transform: translate(0, 0) scale(1);
   }
   33% {
-    border-radius: 60% 40% 30% 70% / 50% 70% 30% 50%;
-    transform: translate(30px, -20px) scale(1.1);
+    border-radius: 55% 45% 50% 50% / 50% 50% 60% 40%;
+    transform: translate(10px, -15px) scale(1.05);
   }
   66% {
-    border-radius: 30% 70% 50% 50% / 60% 50% 70% 40%;
-    transform: translate(-20px, 30px) scale(0.9);
+    border-radius: 50% 60% 45% 55% / 55% 45% 50% 50%;
+    transform: translate(-10px, 10px) scale(0.95);
   }
   100% {
     border-radius: 45% 55% 60% 40% / 60% 40% 60% 40%;
     transform: translate(0, 0) scale(1);
   }
 }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 
 /* Add this in your App.css or a style tag */
@@ -976,4 +1000,16 @@ html {
 
 .read-more-link:hover {
   text-decoration: underline;
+}
+
+.percentage {
+  fill: white;
+  font-size: 1rem;           /* Bigger font size */
+  font-weight: 700;          /* Bolder text */
+  text-anchor: middle;
+  dominant-baseline: middle;
+  transform: rotate(90deg);  /* Correct rotation */
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);  /* Stronger shadow for contrast */
 }
