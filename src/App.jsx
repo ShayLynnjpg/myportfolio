@@ -242,7 +242,7 @@ export default function App() {
         <p className="subtitle">A DIGITAL DESIGN & WEB DEVELOPMENT GRADUATE</p>
 
         <button className="scroll-down-btn" onClick={scrollDown}>
-          About me & Portfolio
+          About me & My work
         </button>
 
         <div className="social-icons">
@@ -264,9 +264,33 @@ export default function App() {
           </a>
         </div>
       </div>
- 
-<section className="skills-section">
-  <style>{`
+
+      <div className="about-section">
+        <h2 className="section-title">👋 About Me</h2>
+        <p className="about-text">
+          I’m <strong>Shay-Lynn</strong>, a passionate digital design and web
+          development graduate with a flair for creating visually engaging and
+          user-friendly experiences.
+          <br />
+          <br />
+          My design approach is rooted in storytelling, bold visuals, and
+          thoughtful layouts—whether it's branding, UI, or print.
+          <br />
+          <br />
+          <em>Fun fact:</em> I design best when I’ve got House Music playing and
+          coffee in hand. ☕
+        </p>
+        <a
+          href="/Shay-Lynn Dudhia - UX_UI (1).pdf"
+          download
+          className="download-cv-btn"
+        >
+          📄 Download My CV
+        </a>
+      </div>
+
+      <section className="skills-section">
+        <style>{`
     .skills-section {
       padding: 2rem;
       max-width: 700px;
@@ -339,56 +363,31 @@ export default function App() {
     }
   `}</style>
 
-  <h2 className="section-title">💡 My Skillset</h2>
+        <h2 className="section-title">💡 My Skillset</h2>
 
-  <div className="skill-bar-wrapper">
-    {[
-      { name: "UI Design", value: 70, color: "#9b59b6" },
-      { name: "Prototyping", value: 75, color: "#2ecc71" },
-      { name: "Graphic Design", value: 80, color: "#f39c12" },
-      { name: "UX Design", value: 85, color: "#3498db" },
-      { name: "Wireframing", value: 65, color: "#e74c3c" },
-      { name: "Adobe Creative Suite", value: 90, color: "#1abc9c" },
-      { name: "HTML & CSS", value: 60, color: "#e91e63" },
-    ].map(({ name, value, color }) => (
-      <div key={name} className="skill">
-        <div className="skill-name">{name}</div>
-        <div className="bar-container">
-          <div
-            className="bar"
-            style={{ width: `${value}%`, backgroundColor: color }}
-          ></div>
-          <span className="percentage-label">{value}%</span>
+        <div className="skill-bar-wrapper">
+          {[
+            { name: "UI Design", value: 70, color: "#9b59b6" },
+            { name: "Prototyping", value: 75, color: "#2ecc71" },
+            { name: "Graphic Design", value: 80, color: "#f39c12" },
+            { name: "UX Design", value: 85, color: "#3498db" },
+            { name: "Wireframing", value: 65, color: "#e74c3c" },
+            { name: "Adobe Creative Suite", value: 90, color: "#1abc9c" },
+            { name: "HTML & CSS", value: 60, color: "#e91e63" },
+          ].map(({ name, value, color }) => (
+            <div key={name} className="skill">
+              <div className="skill-name">{name}</div>
+              <div className="bar-container">
+                <div
+                  className="bar"
+                  style={{ width: `${value}%`, backgroundColor: color }}
+                ></div>
+                <span className="percentage-label">{value}%</span>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-      <div className="about-section">
-        <h2 className="section-title">👋 About Me</h2>
-        <p className="about-text">
-          I’m <strong>Shay-Lynn</strong>, a passionate digital design and web
-          development graduate with a flair for creating visually engaging and
-          user-friendly experiences.
-          <br />
-          <br />
-          My design approach is rooted in storytelling, bold visuals, and
-          thoughtful layouts—whether it's branding, UI, or print.
-          <br />
-          <br />
-          <em>Fun fact:</em> I design best when I’ve got House Music playing and
-          coffee in hand. ☕
-        </p>
-        <a
-          href="/Shay-Lynn Dudhia - UX_UI (1).pdf"
-          download
-          className="download-cv-btn"
-        >
-          📄 Download My CV
-        </a>
-      </div>
+      </section>
 
       {/* Projects Section */}
       <h2 className="projects-header">#projects</h2>
@@ -431,7 +430,11 @@ export default function App() {
           tips—all designed to support development and enhance communication in
           one user-friendly place.
         </p>
-        <a href="https://medium.com/@shaylynndudhia.official/case-study-write-up-595c6a480cea" download className="download-cv-btn">
+        <a
+          href="https://medium.com/@shaylynndudhia.official/case-study-write-up-595c6a480cea"
+          download
+          className="download-cv-btn"
+        >
           Case study & Prototype
         </a>
         <div className="prototype-embed">
