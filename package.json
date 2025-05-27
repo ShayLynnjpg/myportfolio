@@ -1,8 +1,8 @@
 {
+  "homepage": "https://shaylynnjpg.github.io/myportfolio/",
   "name": "professional-portfolio",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://shaylynnjpg.github.io/myportfolio/",
   "type": "module",
   "scripts": {
     "dev": "vite",
