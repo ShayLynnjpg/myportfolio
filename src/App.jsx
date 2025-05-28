@@ -256,7 +256,7 @@ export default function App() {
               🎉 Portfolio updated! Check out my latest projects below ↓ &nbsp;
               • &nbsp; 🎨 Designs for print, web, and motion graphics &nbsp; •
               &nbsp; 🖥️ My other new website Finchie Design is now live —
-              Explore our latest creative work and services! - Find out me on
+              Explore our latest creative work and services! - Find out more on
               Instagram too at @FinchieDesigns
             </span>
           </div>
