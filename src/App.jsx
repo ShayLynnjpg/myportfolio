@@ -278,8 +278,13 @@ export default function App() {
           <br />
           <br />
           <em>Fun fact:</em> I design best when I’ve got House Music playing and
-          coffee in hand. ☕
+          coffee in hand. ☕ I also take on part-time freelance work under the
+          name
+          <strong> Finchie Design</strong>, where I focus on creating
+          accessible, digital-first experiences for small businesses and
+          passion-led projects. Wesite: https://finchiedesign.co.uk/ 
         </p>
+
         <a
           href="/Shay-Lynn Dudhia - UX_UI (1).pdf"
           download
