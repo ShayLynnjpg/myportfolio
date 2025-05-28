@@ -6,13 +6,16 @@ import businessImg from "./assets/business cards template examples.png";
 import stickerpartyImg from "./assets/stickerparty.png";
 import templateericImg from "./assets/template ericcc a5.jpg";
 import blogImg1 from "./assets/Van Design.jpg";
+import dkpImg1 from "./assets/dkpflyer.jpg";
+import cakepopImg1 from "./assets/cakepops flyers.jpg";
+import koriImg1 from "./assets/koriflyer111.png";
 
 const text = "Hello, I'm Shay-Lynn...";
 
 const projects = [
   {
     id: "banner",
-    title: "Portfolio Banner",
+    title: "Business Banner",
     imgSrc: bannerImg,
     description: "Modern digital design banner for personal branding",
     stack: ["Photoshop", "Illustrator"],
@@ -23,7 +26,7 @@ const projects = [
     title: "Business Cards Design",
     imgSrc: businessImg,
     description: "Clean and professional business card template",
-    stack: ["InDesign", "Print"],
+    stack: ["InDesign", "Print", "Photoshop"],
     liveLink: "#",
   },
   {
@@ -31,15 +34,39 @@ const projects = [
     title: "Sticker Party Collection",
     imgSrc: stickerpartyImg,
     description: "Colorful sticker pack for events and fun branding",
-    stack: ["Illustrator", "Die-cut"],
+    stack: ["Illustrator", "Die-cut", "Photoshop"],
     liveLink: "#",
   },
   {
     id: "template-eric",
-    title: "Template Eric A5",
+    title: "The Scan Doctor A5 Flyer",
     imgSrc: templateericImg,
     description: "A5 layout template for editorial or print",
-    stack: ["Photoshop", "Layout"],
+    stack: ["Photoshop", "Layout", "Illustrator"],
+    liveLink: "#",
+  },
+  {
+    id: "template-dkp",
+    title: "DKP Electric A5 Flyer",
+    imgSrc: dkpImg1,
+    description: "A5 layout template for editorial or print",
+    stack: ["Photoshop", "Layout", "Illustrator"],
+    liveLink: "#",
+  },
+  {
+    id: "Cakepops",
+    title: "Cakepop A5 Flyer",
+    imgSrc: cakepopImg1,
+    description: "A5 layout template for editorial or print",
+    stack: ["Photoshop", "Layout", "Illustrator"],
+    liveLink: "#",
+  },
+  {
+    id: "template-kori",
+    title: "Cori Photography A5 Flyer",
+    imgSrc: koriImg1,
+    description: "A5 layout template for editorial or print",
+    stack: ["Photoshop", "Layout", "Illustrator"],
     liveLink: "#",
   },
 ];
@@ -282,7 +309,7 @@ export default function App() {
           name
           <strong> Finchie Design</strong>, where I focus on creating
           accessible, digital-first experiences for small businesses and
-          passion-led projects. Wesite: https://finchiedesign.co.uk/ 
+          passion-led projects. Wesite: https://finchiedesign.co.uk/
         </p>
 
         <a
