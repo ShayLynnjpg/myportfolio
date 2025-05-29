@@ -267,7 +267,13 @@ export default function App() {
           <span className="blinking-cursor"></span>
         </h1>
         <p className="subtitle">A DIGITAL DESIGN & WEB DEVELOPMENT GRADUATE.</p>
-        <a>I’m a designer with a background in education, passionate about creating playful, accessible learning experiences for children. With 1.5 years of hands on experience supporting young learners — including those with special needs — I understand how to design content that’s clear, engaging, and truly learner-centered.</a>
+        <a>
+          I’m a designer with a background in education, passionate about
+          creating playful, accessible learning experiences for children. With
+          1.5 years of hands on experience supporting young learners, including
+          those with special needs, I understand how to design content that’s
+          clear, engaging, and truly learner-centered.
+        </a>
 
         <button className="scroll-down-btn" onClick={scrollDown}>
           About me & My work
