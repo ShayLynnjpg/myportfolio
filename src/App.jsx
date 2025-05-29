@@ -90,31 +90,31 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [showContent, setShowContent] = useState(false);
-  const [, setShowProjects] = useState(false); // controls project grid slide-up
+  const [setShowProjects] = useState(false); // controls project grid slide-up
   const [columns, setColumns] = useState(4);
 
   // Animate loading progress 0 to 100 in ~2.5s
-  useEffect(() => {
-    let start = 0;
-    if (loading) {
-      const interval = setInterval(() => {
-        start += 2;
-        if (start > 100) start = 100;
-        setProgress(start);
-      }, 50);
-      return () => clearInterval(interval);
-    }
-  }, [loading]);
+useEffect(() => {
+  if (!loading) return;
 
-  // After loading, show content
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-      setShowContent(true);
-    }, 2500);
+  let start = 0;
+  const interval = setInterval(() => {
+    start += 2;
+    setProgress(start);
+  }, 50);
 
-    return () => clearTimeout(timer);
-  }, []);
+  const timer = setTimeout(() => {
+    setLoading(false);
+    setShowContent(true);
+    clearInterval(interval);
+  }, 2500);
+
+  return () => {
+    clearInterval(interval);
+    clearTimeout(timer);
+  };
+}, [loading]);
+
 
   // Typing animation for headline text
   useEffect(() => {
