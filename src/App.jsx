@@ -513,7 +513,7 @@ export default function App() {
             rel="noopener noreferrer"
             className="download-cv-btn"
           >
-            View Case Study & Prototype
+            Full Screen Prototype
           </a>
 
           <div
