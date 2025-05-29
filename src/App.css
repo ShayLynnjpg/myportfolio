@@ -10,6 +10,12 @@ body {
   cursor: none;
 }
 
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
 /* Main Container */
 .app {
   min-height: 100vh;
