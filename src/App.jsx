@@ -314,7 +314,7 @@ export default function App() {
         </p>
 
         <a
-          href="/Shay-Lynn Dudhia - UX_UI (1).pdf"
+          href="/Shay-Lynn Dudhia - LXD _UI&UX - CV.pdf"
           download
           className="download-cv-btn"
         >
