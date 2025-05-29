@@ -480,6 +480,65 @@ export default function App() {
           ></iframe>
         </div>
 
+        {/* Interactive Prototype Section */}
+        <div className={`laptop-section ${showLaptop ? "visible" : ""}`}>
+          <h2 className="section-title">💻 Interactive Prototype Preview</h2>
+          <p className="prototype-description">
+            Explore my recent UI/UX prototype below!
+          </p>
+          <p>
+            <strong>SOLfinance</strong> is a budgeting and money management app
+            designed specifically for university students. It helps users
+            securely link their bank accounts and track spending in real-time.
+          </p>
+          <p>
+            🔗 The app offers seamless bank account integration to keep finances
+            up to date automatically.
+          </p>
+          <p>
+            📊 Automated budgeting and personalized spending insights help
+            students understand where their money goes.
+          </p>
+          <p>
+            🎯 Goal setting and visual tracking features motivate users to save
+            for their priorities.
+          </p>
+          <p>
+            📱 The student-friendly, mobile-first interface makes managing
+            finances simple and intuitive.
+          </p>
+          <a
+            href="https://www.figma.com/proto/q52seAqWYpQviFGiBc54Fu/SOLfinance"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-cv-btn"
+          >
+            View Case Study & Prototype
+          </a>
+
+          <div
+            className="prototype-embed"
+            style={{
+              marginTop: "24px",
+              maxWidth: "900px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            <iframe
+              src="https://embed.figma.com/proto/q52seAqWYpQviFGiBc54Fu/SOLfinance?node-id=1-3397&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&embed-host=share&hide-ui=1"
+              title="SOLfinance Prototype"
+              width="100%"
+              height="600"
+              style={{
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                borderRadius: "12px",
+              }}
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
         {/* Blog Section */}
         <section className="blog-section">
           <h2 className="section-title">📝 Blogs</h2>
