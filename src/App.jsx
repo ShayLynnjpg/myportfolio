@@ -93,8 +93,18 @@ export default function App() {
   const [setShowProjects] = useState(false); // fixed here
   const [columns, setColumns] = useState(4);
   const [expandedImg, setExpandedImg] = useState(null);
-  const openImage = (src) => setExpandedImg(src);
-  const closeImage = () => setExpandedImg(null);
+const [imgLoading, setImgLoading] = useState(false);
+
+const openImage = (src) => {
+  setImgLoading(true);
+  setExpandedImg(src);
+};
+
+const closeImage = () => {
+  setExpandedImg(null);
+  setImgLoading(false);
+};
+
 
   // Animate loading progress 0 to 100 in ~2.5s
   useEffect(() => {
@@ -425,8 +435,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
-     <section className="projects-section">
+{/* Projects Section */}
+<section className="projects-section">
   <h2 className="projects-header">#projects</h2>
   <div
     className="projects-container"
@@ -456,10 +466,18 @@ export default function App() {
 
   {expandedImg && (
     <div className="modal" onClick={closeImage}>
-      <img src={expandedImg} alt="Expanded project" className="modal-img" />
+      {imgLoading && <div className="spinner">Loading...</div>}
+      <img
+        src={expandedImg}
+        alt="Expanded project"
+        className="modal-img"
+        style={{ display: imgLoading ? "none" : "block" }}
+        onLoad={() => setImgLoading(false)}
+      />
     </div>
   )}
 </section>
+
 
     
 
