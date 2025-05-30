@@ -438,6 +438,9 @@ const closeImage = () => {
 {/* Projects Section */}
 <section className="projects-section">
   <h2 className="projects-header">#projects</h2>
+  <p style={{ textAlign: "center", marginTop: "1rem", color: "#ccc" }}>
+  Click the picture to have a better view :)
+</p>
   <div
     className="projects-container"
     style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
