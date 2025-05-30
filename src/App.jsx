@@ -90,31 +90,33 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [showContent, setShowContent] = useState(false);
-  const [setShowProjects] = useState(false); // controls project grid slide-up
+  const [setShowProjects] = useState(false); // fixed here
   const [columns, setColumns] = useState(4);
+  const [expandedImg, setExpandedImg] = useState(null);
+  const openImage = (src) => setExpandedImg(src);
+  const closeImage = () => setExpandedImg(null);
 
   // Animate loading progress 0 to 100 in ~2.5s
-useEffect(() => {
-  if (!loading) return;
+  useEffect(() => {
+    if (!loading) return;
 
-  let start = 0;
-  const interval = setInterval(() => {
-    start += 2;
-    setProgress(start);
-  }, 50);
+    let start = 0;
+    const interval = setInterval(() => {
+      start += 2;
+      setProgress(start);
+    }, 50);
 
-  const timer = setTimeout(() => {
-    setLoading(false);
-    setShowContent(true);
-    clearInterval(interval);
-  }, 2500);
+    const timer = setTimeout(() => {
+      setLoading(false);
+      setShowContent(true);
+      clearInterval(interval);
+    }, 2500);
 
-  return () => {
-    clearInterval(interval);
-    clearTimeout(timer);
-  };
-}, [loading]);
-
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timer);
+    };
+  }, [loading]);
 
   // Typing animation for headline text
   useEffect(() => {
@@ -256,7 +258,7 @@ useEffect(() => {
               🎉 Portfolio updated! Check out my latest projects below ↓ &nbsp;
               • &nbsp; 🎨 Designs for print, web, and motion graphics &nbsp; •
               &nbsp; 🖥️ My other new website Finchie Design is now live —
-              Explore our latest creative work and services! 
+              Explore our latest creative work and services!
             </span>
           </div>
         </div>
@@ -294,11 +296,12 @@ useEffect(() => {
       <div className="about-section">
         <h2 className="section-title">👋 About Me</h2>
         <p className="about-text">
-          Hey I'm <strong>Shay-Lynn</strong>, nice to meet you!  I’m a designer with a background in education, passionate about
-          creating playful, accessible learning experiences for children. With
-          1.5 years of hands on experience supporting young learners, including
-          those with special needs, I understand how to design content that’s
-          clear, engaging, and truly learner-centered.
+          Hey I'm <strong>Shay-Lynn</strong>, nice to meet you! I’m a designer
+          with a background in education, passionate about creating playful,
+          accessible learning experiences for children. With 1.5 years of hands
+          on experience supporting young learners, including those with special
+          needs, I understand how to design content that’s clear, engaging, and
+          truly learner-centered.
           <br />
           <br />
           My design approach is rooted in storytelling, bold visuals, and
@@ -423,30 +426,42 @@ useEffect(() => {
       </section>
 
       {/* Projects Section */}
-      <h2 className="projects-header">#projects</h2>
-      <div
-        className="projects-container"
-        style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-      >
-        {projects.map((project) => (
-          <div className="project-card" key={project.id}>
-            <img
-              src={project.imgSrc}
-              alt={project.title}
-              className="project-img"
-            />
-            <div className="project-tags">
-              {project.stack.map((tech, idx) => (
-                <span key={idx} className="tag">
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-desc">{project.description}</p>
-          </div>
-        ))}
+     <section className="projects-section">
+  <h2 className="projects-header">#projects</h2>
+  <div
+    className="projects-container"
+    style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+  >
+    {projects.map((project) => (
+      <div className="project-card" key={project.id}>
+        <img
+          src={project.imgSrc}
+          alt={project.title}
+          className="project-img"
+          onClick={() => openImage(project.imgSrc)}
+          style={{ cursor: "pointer" }}
+        />
+        <div className="project-tags">
+          {project.stack.map((tech, idx) => (
+            <span key={idx} className="tag">
+              {tech}
+            </span>
+          ))}
+        </div>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
       </div>
+    ))}
+  </div>
+
+  {expandedImg && (
+    <div className="modal" onClick={closeImage}>
+      <img src={expandedImg} alt="Expanded project" className="modal-img" />
+    </div>
+  )}
+</section>
+
+    
 
       {/* Interactive Prototype Section */}
       <div className={`laptop-section ${showLaptop ? "visible" : ""}`}>
