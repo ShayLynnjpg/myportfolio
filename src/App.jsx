@@ -10,7 +10,7 @@ import dkpImg1 from "./assets/dkpflyer.jpg";
 import cakepopImg1 from "./assets/cakepops flyers.jpg";
 import koriImg1 from "./assets/koriflyer111.png";
 
-const text = "Hello, I'm Shay-Lynn...";
+const text = "Hello, I'm Shay-Lynn!";
 
 const projects = [
   {
@@ -90,31 +90,35 @@ export default function App() {
   const [setShowProjects] = useState(false); // fixed here
   const [columns, setColumns] = useState(4);
   const [expandedImg, setExpandedImg] = useState(null);
-const [imgLoading, setImgLoading] = useState(false);
+  const [imgLoading, setImgLoading] = useState(false);
 
-const openImage = (src) => {
-  setImgLoading(true);
-  setExpandedImg(src);
-};
+  const openImage = (src) => {
+    setImgLoading(true);
+    setExpandedImg(src);
+  };
 
-const closeImage = () => {
-  setExpandedImg(null);
-  setImgLoading(false);
-};
+  const closeImage = () => {
+    setExpandedImg(null);
+    setImgLoading(false);
+  };
 
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
+  useEffect(() => {
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
+  }, []);
 
   // Typing animation for headline text
-useEffect(() => {
-  if (index < text.length) {
-    const timeout = setTimeout(() => {
-      setDisplayedText((prev) => prev + text[index]);
-      setIndex(index + 1);
-    }, 100);
-    return () => clearTimeout(timeout);
-  }
-}, [index]);
-
+  useEffect(() => {
+    if (index < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex(index + 1);
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [index]);
 
   // Track cursor
   useEffect(() => {
@@ -186,32 +190,34 @@ useEffect(() => {
       </div>
 
       {/* Blob Cursor */}
-      <div
-        className="blob-cursor"
-        style={{
-          position: "fixed",
-          top: cursorPos.y,
-          left: cursorPos.x,
-          width: 40,
-          height: 40,
-          borderRadius: "50%",
-          backgroundColor: "rgba(255, 0, 150, 0.3)",
-          pointerEvents: "none",
-          transform: "translate(-50%, -50%)",
-          transition: "top 0.1s ease, left 0.1s ease",
-          zIndex: 9999,
-          mixBlendMode: "difference",
-        }}
-      ></div>
-
+      {!isTouchDevice && (
+        <div
+          className="blob-cursor"
+          style={{
+            position: "fixed",
+            top: cursorPos.y,
+            left: cursorPos.x,
+            width: 40,
+            height: 40,
+            borderRadius: "50%",
+            backgroundColor: "rgba(255, 0, 150, 0.6)",
+            border: "2px solid #fff", // white outline
+            boxShadow: "0 0 20px rgba(255, 0, 150, 0.7)",
+            pointerEvents: "none",
+            transform: "translate(-50%, -50%)",
+            transition: "top 0.05s ease, left 0.05s ease",
+            zIndex: 9999,
+            mixBlendMode: "screen",
+          }}
+        ></div>
+      )}
 
       {/* Main Content */}
       <div
         className="app"
         style={{
-          
           transition: "opacity 1s ease",
-         
+
           minHeight: "100vh",
           padding: "2rem",
         }}
@@ -389,54 +395,51 @@ useEffect(() => {
         </div>
       </section>
 
-{/* Projects Section */}
-<section className="projects-section">
-  <h2 className="projects-header">#projects</h2>
-  <p style={{ textAlign: "center", marginTop: "1rem", color: "#ccc" }}>
-  Click the picture to have a better view :)
-</p>
-  <div
-    className="projects-container"
-    style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-  >
-    {projects.map((project) => (
-      <div className="project-card" key={project.id}>
-        <img
-          src={project.imgSrc}
-          alt={project.title}
-          className="project-img"
-          onClick={() => openImage(project.imgSrc)}
-          style={{ cursor: "pointer" }}
-        />
-        <div className="project-tags">
-          {project.stack.map((tech, idx) => (
-            <span key={idx} className="tag">
-              {tech}
-            </span>
+      {/* Projects Section */}
+      <section className="projects-section">
+        <h2 className="projects-header">#projects</h2>
+        <p style={{ textAlign: "center", marginTop: "1rem", color: "#ccc" }}>
+          Click the picture to have a better view :)
+        </p>
+        <div
+          className="projects-container"
+          style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+        >
+          {projects.map((project) => (
+            <div className="project-card" key={project.id}>
+              <img
+                src={project.imgSrc}
+                alt={project.title}
+                className="project-img"
+                onClick={() => openImage(project.imgSrc)}
+                style={{ cursor: "pointer" }}
+              />
+              <div className="project-tags">
+                {project.stack.map((tech, idx) => (
+                  <span key={idx} className="tag">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-desc">{project.description}</p>
+            </div>
           ))}
         </div>
-        <h3 className="project-title">{project.title}</h3>
-        <p className="project-desc">{project.description}</p>
-      </div>
-    ))}
-  </div>
 
-  {expandedImg && (
-    <div className="modal" onClick={closeImage}>
-      {imgLoading && <div className="spinner">Loading...</div>}
-      <img
-        src={expandedImg}
-        alt="Expanded project"
-        className="modal-img"
-        style={{ display: imgLoading ? "none" : "block" }}
-        onLoad={() => setImgLoading(false)}
-      />
-    </div>
-  )}
-</section>
-
-
-    
+        {expandedImg && (
+          <div className="modal" onClick={closeImage}>
+            {imgLoading && <div className="spinner">Loading...</div>}
+            <img
+              src={expandedImg}
+              alt="Expanded project"
+              className="modal-img"
+              style={{ display: imgLoading ? "none" : "block" }}
+              onLoad={() => setImgLoading(false)}
+            />
+          </div>
+        )}
+      </section>
 
       {/* Interactive Prototype Section */}
       <div className={`laptop-section ${showLaptop ? "visible" : ""}`}>
