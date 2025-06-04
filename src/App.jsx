@@ -410,6 +410,7 @@ export default function App() {
               <img
                 src={project.imgSrc}
                 alt={project.title}
+                loading="lazy"
                 className="project-img"
                 onClick={() => openImage(project.imgSrc)}
                 style={{ cursor: "pointer" }}
