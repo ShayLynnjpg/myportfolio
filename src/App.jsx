@@ -87,9 +87,6 @@ export default function App() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [displayedText, setDisplayedText] = useState("");
   const [index, setIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
-  const [showContent, setShowContent] = useState(false);
   const [setShowProjects] = useState(false); // fixed here
   const [columns, setColumns] = useState(4);
   const [expandedImg, setExpandedImg] = useState(null);
@@ -106,38 +103,18 @@ const closeImage = () => {
 };
 
 
-  // Animate loading progress 0 to 100 in ~2.5s
-  useEffect(() => {
-    if (!loading) return;
-
-    let start = 0;
-    const interval = setInterval(() => {
-      start += 2;
-      setProgress(start);
-    }, 50);
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-      setShowContent(true);
-      clearInterval(interval);
-    }, 2500);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timer);
-    };
-  }, [loading]);
 
   // Typing animation for headline text
-  useEffect(() => {
-    if (!loading && index < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText((prev) => prev + text[index]);
-        setIndex(index + 1);
-      }, 100);
-      return () => clearTimeout(timeout);
-    }
-  }, [index, loading]);
+useEffect(() => {
+  if (index < text.length) {
+    const timeout = setTimeout(() => {
+      setDisplayedText((prev) => prev + text[index]);
+      setIndex(index + 1);
+    }, 100);
+    return () => clearTimeout(timeout);
+  }
+}, [index]);
+
 
   // Track cursor
   useEffect(() => {
@@ -227,37 +204,14 @@ const closeImage = () => {
         }}
       ></div>
 
-      {/* Loading Screen */}
-      <div
-        className="loading-page"
-        style={{
-          opacity: loading ? 1 : 0,
-          pointerEvents: loading ? "auto" : "none",
-          transition: "opacity 1s ease",
-          position: loading ? "fixed" : "absolute",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          zIndex: 1000,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background: "#121212",
-        }}
-      >
-        <div className="blob">
-          <span className="progress-text">{progress}%</span>
-        </div>
-      </div>
 
       {/* Main Content */}
       <div
         className="app"
         style={{
-          opacity: showContent ? 1 : 0,
+          
           transition: "opacity 1s ease",
-          pointerEvents: showContent ? "auto" : "none",
+         
           minHeight: "100vh",
           padding: "2rem",
         }}
