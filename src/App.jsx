@@ -394,7 +394,7 @@ export default function App() {
           ))}
         </div>
       </section>
-
+      <div className="visual-divider"></div>
       {/* Projects Section */}
       <section className="projects-section">
         <h2 className="projects-header">#projects</h2>
