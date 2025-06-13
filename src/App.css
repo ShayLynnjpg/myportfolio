@@ -326,7 +326,7 @@ body, #root {
   font-size: 2rem;
   margin: 2rem 0 1rem;
   text-align: center;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #131313;
   padding-bottom: 0.5rem;
 }
 
@@ -340,7 +340,7 @@ body, #root {
 
 .project-card {
   background: #1e1e1e;
-  border: 1px solid #333;
+  border: 1px solid #0e0e0e;
   border-radius: 10px;
   padding: 1rem;
   color: white;
@@ -1154,3 +1154,9 @@ html {
   box-shadow: 0 0 20px #000;
 }
 
+.visual-divider {
+  height: 4px;
+  width: 100%;
+  margin: 4rem 0 2rem;
+  border-radius: 2px;
+}
