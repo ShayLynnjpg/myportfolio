@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { FaLinkedin, FaGithub, FaBehance } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import bannerImg from "./assets/banneerrr.jpg";
 import businessImg from "./assets/business cards template examples.png";
 import stickerpartyImg from "./assets/stickerparty.png";
@@ -225,10 +225,8 @@ export default function App() {
         <div className="announcement-banner">
           <div className="announcement-text">
             <span>
-              🎉 Portfolio updated! Check out my latest projects below ↓ &nbsp;
-              • &nbsp; 🎨 Designs for print, web, and motion graphics &nbsp; •
-              &nbsp; 🖥️ My other new website Finchie Design is now live —
-              Explore our latest creative work and services!
+              🎉 Portfolio updated! Check out my latest projects below🎉 &nbsp;
+              &nbsp; 
             </span>
           </div>
         </div>
@@ -281,9 +279,7 @@ export default function App() {
           <em>Fun fact:</em> I design best when I’ve got House Music playing and
           coffee in hand. ☕ I also take on part-time freelance work under the
           name
-          <strong> Finchie Design</strong>, where I focus on creating
-          accessible, digital-first experiences for small businesses and
-          passion-led projects. Wesite: https://finchiedesign.co.uk/
+          <strong> Finchie Design.</strong>
         </p>
 
         <a
