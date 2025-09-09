@@ -9,10 +9,19 @@ import blogImg1 from "./assets/Van Design.jpg";
 import dkpImg1 from "./assets/dkpflyer.jpg";
 import cakepopImg1 from "./assets/cakepops flyers.jpg";
 import koriImg1 from "./assets/koriflyer111.png";
+import solarpanel from "./assets/Solar Panel Design.jpg";
 
 const text = "Hello, I'm Shay-Lynn!";
 
 const projects = [
+    {
+    id: "template-kori",
+    title: "EasyPV: Solar System Design",
+    imgSrc: solarpanel,
+    description: "A5 layout template for editorial or print",
+    stack: ["EasyPV", "SolarPanelSystemDesign", "3D"],
+    liveLink: "#",
+  },
   {
     id: "banner",
     title: "Business Banner",
@@ -69,6 +78,7 @@ const projects = [
     stack: ["Photoshop", "Layout", "Illustrator"],
     liveLink: "#",
   },
+  
 ];
 
 const blogPosts = [
@@ -395,7 +405,7 @@ export default function App() {
       <section className="projects-section">
         <h2 className="projects-header">#projects</h2>
         <p style={{ textAlign: "center", marginTop: "1rem", color: "#ccc" }}>
-          Click the picture to have a better view :)
+          Click the picture to have a better view :
         </p>
         <div
           className="projects-container"
