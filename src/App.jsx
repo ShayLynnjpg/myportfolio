@@ -14,13 +14,13 @@ import solarpanel from "./assets/Solar Panel Design.jpg";
 const text = "Hello, I'm Shay-Lynn!";
 
 const projects = [
-    {
-    id: "template-kori",
+  {
+    id: "solar-panel-design",
     title: "EasyPV: Solar System Design",
     imgSrc: solarpanel,
     description: "A5 layout template for editorial or print",
     stack: ["EasyPV", "SolarPanelSystemDesign", "3D"],
-    liveLink: "#",
+    liveLink: "solar-panel-design",
   },
   {
     id: "banner",
@@ -78,7 +78,6 @@ const projects = [
     stack: ["Photoshop", "Layout", "Illustrator"],
     liveLink: "#",
   },
-  
 ];
 
 const blogPosts = [
@@ -235,8 +234,8 @@ export default function App() {
         <div className="announcement-banner">
           <div className="announcement-text">
             <span>
-              🎉 Portfolio updated! Check out my latest projects below🎉 &nbsp;
-              &nbsp; 
+              ⚡**My portfolio is a work in progress! I’m adding exciting new projects and updating existing ones to showcase my best work. Everything is still available to explore, so feel free to browse what’s here now—and check back soon to see all the fresh updates and projects coming your way!**⚡ &nbsp;
+              &nbsp;
             </span>
           </div>
         </div>
@@ -430,6 +429,10 @@ export default function App() {
               </div>
               <h3 className="project-title">{project.title}</h3>
               <p className="project-desc">{project.description}</p>
+              {/* 👉 New button here */}
+              <a href={project.liveLink}>
+                <button className="details-btn">View Details</button>
+              </a>
             </div>
           ))}
         </div>
