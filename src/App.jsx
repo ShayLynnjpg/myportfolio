@@ -10,6 +10,7 @@ import dkpImg1 from "./assets/dkpflyer.jpg";
 import cakepopImg1 from "./assets/cakepops flyers.jpg";
 import koriImg1 from "./assets/koriflyer111.png";
 import solarpanel from "./assets/Solar Panel Design.jpg";
+import { Link } from "react-router-dom";
 
 const text = "Hello, I'm Shay-Lynn!";
 
@@ -234,8 +235,11 @@ export default function App() {
         <div className="announcement-banner">
           <div className="announcement-text">
             <span>
-              ⚡**My portfolio is a work in progress! I’m adding exciting new projects and updating existing ones to showcase my best work. Everything is still available to explore, so feel free to browse what’s here now—and check back soon to see all the fresh updates and projects coming your way!**⚡ &nbsp;
-              &nbsp;
+              ⚡**My portfolio is a work in progress! I’m adding exciting new
+              projects and updating existing ones to showcase my best work.
+              Everything is still available to explore, so feel free to browse
+              what’s here now—and check back soon to see all the fresh updates
+              and projects coming your way!**⚡ &nbsp; &nbsp;
             </span>
           </div>
         </div>
@@ -399,57 +403,54 @@ export default function App() {
           ))}
         </div>
       </section>
-      <div className="visual-divider"></div>
-      {/* Projects Section */}
-      <section className="projects-section">
-        <h2 className="projects-header">#projects</h2>
-        <p style={{ textAlign: "center", marginTop: "1rem", color: "#ccc" }}>
-          Click the picture to have a better view :
-        </p>
-        <div
-          className="projects-container"
-          style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-        >
-          {projects.map((project) => (
-            <div className="project-card" key={project.id}>
-              <img
-                src={project.imgSrc}
-                alt={project.title}
-                loading="lazy"
-                className="project-img"
-                onClick={() => openImage(project.imgSrc)}
-                style={{ cursor: "pointer" }}
-              />
-              <div className="project-tags">
-                {project.stack.map((tech, idx) => (
-                  <span key={idx} className="tag">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
-              {/* 👉 New button here */}
-              <a href={project.liveLink}>
-                <button className="details-btn">View Details</button>
-              </a>
-            </div>
-          ))}
-        </div>
-
-        {expandedImg && (
-          <div className="modal" onClick={closeImage}>
-            {imgLoading && <div className="spinner">Loading...</div>}
+      <div
+        className="projects-container"
+        style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+      >
+        {projects.map((project) => (
+          <div className="project-card" key={project.id}>
             <img
-              src={expandedImg}
-              alt="Expanded project"
-              className="modal-img"
-              style={{ display: imgLoading ? "none" : "block" }}
-              onLoad={() => setImgLoading(false)}
+              src={project.imgSrc}
+              alt={project.title}
+              loading="lazy"
+              className="project-img"
+              onClick={() => openImage(project.imgSrc)}
+              style={{ cursor: "pointer" }}
             />
+            <div className="project-tags">
+              {project.stack.map((tech, idx) => (
+                <span key={idx} className="tag">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <h3 className="project-title">{project.title}</h3>
+            <p className="project-desc">{project.description}</p>
+
+            {/* Only add View Project button for Solar Panel project */}
+            {project.id === "solar-panel-design" && (
+              <a
+                href="/solar-panel-design"
+                className="view-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-block",
+                  marginTop: "10px",
+                  padding: "8px 15px",
+                  backgroundColor: "8c35a0",
+                  color: "#fff",
+                  borderRadius: "5px",
+                  textDecoration: "none",
+                  transition: "0.3s",
+                }}
+              >
+                View Project
+              </a>
+            )}
           </div>
-        )}
-      </section>
+        ))}
+      </div>
 
       {/* Interactive Prototype Section */}
       <div className={`laptop-section ${showLaptop ? "visible" : ""}`}>
